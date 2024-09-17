@@ -1,7 +1,7 @@
 import random
 
 computer_number = (random.randint(100,999))
-guess_int = input
+ 
 
 
 def start():
@@ -30,9 +30,10 @@ def guess_number():
 
     guess_int = input("Guess here:")
 
+    return guess_int
 
-    
-def validate_answer():
+
+def validate_answer(values):
     """
     This function checks if the users guess is a valid answer
     """   
@@ -50,12 +51,12 @@ def validate_answer():
 
 
     
-def check_answer():
+def check_answer(guess_int):
     """
     Checks if answer is correct or how many
     digits are correct
     """
-    if (guess_int == computer_number):
+    if (int(guess_int) == computer_number):
         print('Congratulations you win!')
     else:
         print('Not quite!')
@@ -71,9 +72,9 @@ def main():
     """
     start()
     generate_random_number()
-    guess_number()
-    validate_answer()
-    check_answer()
+    values = guess_number()
+    validate_answer(values)
+    check_answer(values)
 
 
 
