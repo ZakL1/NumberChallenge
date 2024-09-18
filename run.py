@@ -1,7 +1,7 @@
 import random
 
 computer_number = (random.randint(100,999))
- 
+counter = 0
 
 
 def start():
@@ -28,7 +28,7 @@ def guess_number():
     print("Guess must be 3 digits.")
     print("There should not be any spaces inbetween digits.\n")
 
-    guess_int = input("Guess here:")
+    guess_int = input("Guess here:\n")
 
     return guess_int
 
@@ -56,10 +56,17 @@ def check_answer(guess_int):
     Checks if answer is correct or how many
     digits are correct
     """
-    if (int(guess_int) == computer_number):
-        print('Congratulations you win!')
-    else:
-        print('Not quite!')
+    while (guess_int != computer_number):
+        global counter
+        counter += 1
+        if (int(guess_int) == computer_number):
+            print('Congratulations you win!')
+            print('It took you' + str(counter) + 'guesses')
+        else:
+            print('Not quite, have another guess!')
+            guess_int = input("Guess here:\n")
+        
+    
 
  
 
