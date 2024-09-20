@@ -59,12 +59,20 @@ def check_answer(guess_int):
     while (guess_int != computer_number):
         global counter
         counter += 1
-        if (int(guess_int) == computer_number):
-            print('Congratulations you win!')
-            print('It took you' + str(counter) + 'guesses')
-        else:
-            print('Not quite, have another guess!')
+        if (int(guess_int) > computer_number):
+            print('Not quite, your guess is too high!')
             guess_int = input("Guess here:\n")
+            continue
+        elif (int(guess_int) < computer_number):
+            print('Not quite, your guess is too low!')
+            guess_int = input("Guess here:\n")
+            continue
+        else:
+            print('Congratulations you win!')
+            print('It took you ' + str(counter) + ' guesses')
+            break
+        
+        
         
     
 
