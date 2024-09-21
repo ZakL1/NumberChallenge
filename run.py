@@ -8,7 +8,7 @@ def start():
     """
     print("The computer will generate a 3 digit number for the user to guess.")
     print("The computer will notify the user if a digit is correct.")
-    print("The program will end if the user does not guess the number correctly after 10 guesses.\n")
+    print("The program will end if the user does not guess the number correctly after 15 guesses.\n")
 
 
 
@@ -66,9 +66,9 @@ def check_answer(guess_int):
 
     while (guess_int != computer_number):
         counter += 1
-        if (counter > 10):
+        if (counter > 15):
             print('Oh no, you have run out of guesses! Better luck next time')
-            restart()
+            main()
             continue
         elif (int(guess_int) > computer_number):
             print('Not quite, your guess is too high!')
