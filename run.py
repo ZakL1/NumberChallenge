@@ -1,7 +1,5 @@
 import random
 
-# computer_number = (random.randint(100,999))
-counter = 0
 
 
 def start():
@@ -65,8 +63,9 @@ def check_answer(guess_int):
     Checks if answer is correct or how many
     digits are correct
     """
+    counter = 0
+
     while (guess_int != computer_number):
-        global counter
         counter += 1
         if (counter > 10):
             print('Oh no, you have run out of guesses! Better luck next time')
@@ -74,12 +73,10 @@ def check_answer(guess_int):
             continue
         elif (int(guess_int) > computer_number):
             print('Not quite, your guess is too high!')
-            # guess_int = input("Guess here:\n")
             guess_int = guess_number()
             continue
         elif (int(guess_int) < computer_number):
             print('Not quite, your guess is too low!')
-            # guess_int = input("Guess here:\n")
             guess_int = guess_number()
             continue
         else:
@@ -95,8 +92,8 @@ def restart():
     """
     global replay
     print("Would you like to play again?\n")
-    replay = input("Yes or No:\n")
-    if (replay == "Yes"):
+    replay = input("y to keep playing or press any other key to stop:\n")
+    if (replay == "y"):
         main()
     else:
         print("Thank you for playing, goodbye!")
