@@ -4,6 +4,8 @@ This Number challenge game was made purely with python code, the user has 15 att
 
 The computer will tell you if your are higher or lower to give the user a good chance
 
+[Live version of my site](https://number-challenge1-b5b37897af65.herokuapp.com/)
+
 ![readme hero image](/assets/images/image.png)
 
 
@@ -34,68 +36,53 @@ The computer will tell you if your are higher or lower to give the user a good c
 
 ![Incorrect guess](/assets/images/incorrectguess.png)
 
+## Future Features 
+
+- **Challenge**
+
+    * In the future I would add different difficulties for the user to choose from, these would entail the user to guess a larger number or a smaller
+    number with less guesses or more guesses depending on the difficulty
+
 
 ## Testing 
 
--  Due to the nature of the project testing has been conducted throughout its entirety, mainly through the use of running the program in the terminal and ensuring i get the output intended. Evidence of this is clear within my commits, with various debugs recorded. 
+-  Testing was carried out as I completed the project 
 
--  Various sections of code where also developed in isolation and outputs checked before being inserted into the running order as the size of the project grew.  
+-  1 major bug I had was the users guess not being converted into an integer but I managed to fix it with the help of a tutor
 
--  Once at the finished point, limit testing has been conducted by myself and my peers on slack through the peer-code-review channel, there is currently no reported issues that cause the game to break.
+-  Another simple bug I had was needing to reset the counter when the play replayed the game, the reason it wasn't resetting was
+because I declared the counter variable globally. Once I removed the variable globally and had it inside the corect function it reset everytime.
+
+-  To test if my code was working I would constantly use print statements to make sure I was getting the correct output.
+
 
 ## **Validator Testing
 
     - Python
-        - No errors were found when passing through the [PEP8 Validator tool](http://pep8online.com/)
+        - The main errors I had were having 3 lines spacing between my functions so I removed 1 empty line as needed
+
+        - Currently no errors in the [PEP8 Validator tool](https://pep8ci.herokuapp.com/)
 
 
 ## Unfixed Bugs 
 
--  The only bug i was unable to fix, due to not being able to replicate it, was an issue with how the board display was printed out to the terminal. My only instance of this bug was just after i utilized my updated legend. Once the guess board was printed out again on the next turn the display discrepancy wasn't present.
+-  The only bug I haven't fixed is when the user guesses a number below or over 3 digits it counts as a guess but it doesn't count as a guess
+if the user inputs a string. The reason I didn't fix this is because I ran out of time sadly.
 
-![bug](/assets/images/glitch.png)
-
-[Return to Table of Contents](#contents)
 
 ## Deployment 
 
 - The site is deployed via Heroku. The steps to deploy are as follows:
 
-    *Ensure the requirements for the project are added to the requirements.txt file prior to deployment*
+   - Create an account with Heroku
 
-    1: From the dashboard, select New and then Create new app.
-    
-    2: Enter an individual app name into the text box, select a region from the dropdown and then press Create app.
-    
-    3: A Heroku app has now been created and the Deploy tab is opened.
-    
-    4: Select the Settings tab.
-    
-    5: If required, click on the Reveal Config Vars button and add.
-    
-    6: In the Buildpacks section of the settings tab, click on Add Buildpack, select Python and then save changes.
-    
-    7: Click on Add Buildpack again, select node.js and then save changes.
+   - Create a new Heroku app
 
-    *When they are on the dashboard, ensure that python is above node.js on the list*
-    
-    8: Open the Deploy tab.
-    
-    9: In the deployment method section, select GitHub and confirm the connection.
-    
-    10: Enter the repo-name into the text box. When the correct repo appears, click Connect.
-    
-    11: If desired, in the Automatic deploys section, click Enable Automatic Deploys.
+   - Go to the deploy tab and add Python and NodeJS buildpacks
 
-    *This then updates the deployment every time GitHub code is pushed.*
-    
-    12: To complete the process click on the Deploy Brach button in the Manual deploy section. 
-        
-    *This will take a few seconds to complete while Heroku builds the app.*
-    
-    13: A message will appear informing you that the app was successfully deployed and a View button will bring you to the live site.
+   - Link the Heroku app to the GitHub repository
 
-The live link can be found here - [ULTIMATE BATTLESHIPS](https://ultimate-battleships-lewiscm.herokuapp.com/)
+   - Deploy the branch manually
 
 ## Credits 
 
@@ -103,11 +90,7 @@ The live link can be found here - [ULTIMATE BATTLESHIPS](https://ultimate-battle
 
 - **Content** 
 
-    * Various highlighted sections of my code are developed from this [YouTube Tutorial.](https://www.youtube.com/watch?v=tF1WRCrd_HQ&t=223s&ab_channel=KnowledgeMavens) However, my project is object orientated, with several extra features, so in most instances the base code has been padded out or accepts different arguments.
-
-    * My use of the re library was based of this post on [Stack Overflow.](https://stackoverflow.com/questions/57062794/how-to-check-if-a-string-has-any-special-characters/57062899)
-
-    * My table of contents in the readme was developed from this post on [Stack Overflow.](https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents)  
+    * The validate_answer() function I used was taken from the lovesandwiches project
 
 - **Media**
 
