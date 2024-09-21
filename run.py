@@ -1,6 +1,6 @@
 import random
 
-computer_number = (random.randint(100,999))
+# computer_number = (random.randint(100,999))
 counter = 0
 
 
@@ -10,7 +10,8 @@ def start():
     """
     print("The computer will generate a 3 digit number for the user to guess.")
     print("The computer will notify the user if a digit is correct.")
-    print("The program will end if the user does not guess the number correctly after 5 guesses.\n")
+    print("The program will end if the user does not guess the number correctly after 10 guesses.\n")
+
 
 
 def generate_random_number():
@@ -18,19 +19,27 @@ def generate_random_number():
     The computer will generate a 3 digit number for
     the user the guess
     """
+    global computer_number
+    computer_number = (random.randint(100,999))
     print(computer_number)
+
 
 
 def guess_number():
     """
     User inputs a guess, computer then responds
     """
-    print("Guess must be 3 digits.")
-    print("There should not be any spaces inbetween digits.\n")
+    while True:
+        print("Guess must be 3 digits.")
+        print("There should not be any spaces inbetween digits.\n")
 
-    guess_int = input("Guess here:\n")
+        guess_int = input("Guess here:\n")
+        if guess_int.isdigit():
+            return guess_int
+        else:
+            print("Invalid input. Please enter a  number.\n")
 
-    return guess_int
+
 
 
 def validate_answer(values):
@@ -50,7 +59,7 @@ def validate_answer(values):
     return True
 
 
-    
+
 def check_answer(guess_int):
     """
     Checks if answer is correct or how many
@@ -59,26 +68,39 @@ def check_answer(guess_int):
     while (guess_int != computer_number):
         global counter
         counter += 1
-        if (int(guess_int) > computer_number):
+        if (counter > 10):
+            print('Oh no, you have run out of guesses! Better luck next time')
+            restart()
+            continue
+        elif (int(guess_int) > computer_number):
             print('Not quite, your guess is too high!')
-            guess_int = input("Guess here:\n")
+            # guess_int = input("Guess here:\n")
+            guess_int = guess_number()
             continue
         elif (int(guess_int) < computer_number):
             print('Not quite, your guess is too low!')
-            guess_int = input("Guess here:\n")
+            # guess_int = input("Guess here:\n")
+            guess_int = guess_number()
             continue
         else:
             print('Congratulations you win!')
             print('It took you ' + str(counter) + ' guesses')
             break
-        
-        
-        
-    
-
- 
 
 
+        
+def restart():
+    """
+    Asks the user if they want to play again
+    """
+    global replay
+    print("Would you like to play again?\n")
+    replay = input("Yes or No:\n")
+    if (replay == "Yes"):
+        main()
+    else:
+        print("Thank you for playing, goodbye!")
+        
 
 
 def main():
@@ -88,8 +110,8 @@ def main():
     start()
     generate_random_number()
     values = guess_number()
-    validate_answer(values)
     check_answer(values)
+    restart()
 
 
 
