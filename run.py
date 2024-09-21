@@ -1,15 +1,13 @@
 import random
 
 
-
 def start():
     """
     Explanation of the game
     """
     print("The computer will generate a 3 digit number for the user to guess.")
     print("The computer will notify the user if a digit is correct.")
-    print("The program will end if the user does not guess the number correctly after 15 guesses.\n")
-
+    print("The program will restart after 15 guesses!.\n")
 
 
 def generate_random_number():
@@ -18,8 +16,7 @@ def generate_random_number():
     the user the guess
     """
     global computer_number
-    computer_number = (random.randint(100,999))
-
+    computer_number = (random.randint(100, 999))
 
 
 def guess_number():
@@ -37,12 +34,10 @@ def guess_number():
             print("Invalid input. Please enter a  number.\n")
 
 
-
-
 def validate_answer(values):
     """
     This function checks if the users guess is a valid answer
-    """   
+    """
     try:
         [int(value) for value in values]
         if len(values) != 3:
@@ -54,7 +49,6 @@ def validate_answer(values):
         return False
 
     return True
-
 
 
 def check_answer(guess_int):
@@ -84,7 +78,6 @@ def check_answer(guess_int):
             break
 
 
-        
 def restart():
     """
     Asks the user if they want to play again
@@ -96,7 +89,6 @@ def restart():
         main()
     else:
         print("Thank you for playing, goodbye!")
-        
 
 
 def main():
@@ -108,8 +100,6 @@ def main():
     values = guess_number()
     check_answer(values)
     restart()
-
-
 
 
 main()
