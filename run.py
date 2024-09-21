@@ -19,7 +19,6 @@ def generate_random_number():
     """
     global computer_number
     computer_number = (random.randint(100,999))
-    print(computer_number)
 
 
 
